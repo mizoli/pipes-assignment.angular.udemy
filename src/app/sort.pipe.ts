@@ -7,6 +7,9 @@ export class SortPipe implements PipeTransform {
   transform(value: any, propName: string): any {
     if (value.length === 0) return value;
 
-    const resultArray = [];
+    return value.sort((x, y) => {
+      if (x[propName] > y[propName]) return 1;
+      else return -1;
+    });
   }
 }
